@@ -53,7 +53,7 @@ export default function Home() {
       try {
         const data = await apiService.getWorks();
         // Since xano returns data array directly or nested, adapt here.
-        setWorks(Array.isArray(data) ? data : data.items || []);
+        setWorks(Array.isArray(data) ? data : data?.items || []);
       } catch (err) {
         console.error("Error loading works:", err);
       } finally {

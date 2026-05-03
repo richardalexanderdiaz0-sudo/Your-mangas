@@ -25,14 +25,14 @@ export default function Reader() {
           apiService.getChapters(workId)
         ]);
         setWork(workData);
-        const currentChapter = (chaptersData.items || chaptersData).find(c => String(c.id) === chapterId);
+        const currentChapter = (chaptersData?.items || chaptersData).find(c => String(c.id) === chapterId);
         setChapter(currentChapter);
         // Suponiendo que currentChapter.pages es un arreglo de URLs
         setPages(currentChapter?.pages || []);
         
         // Registrar lectura en biblioteca si está logueado
         if (currentUser) {
-           apiService.addToLibrary({ user_id: currentUser.uid, manga_work_id: workId }).catch(e => console.log('Already in library or error'));
+           apiService.addToLibrary({ user_id: currentUser.id, manga_work_id: workId }).catch(e => console.log('Already in library or error'));
         }
       } catch (err) {
         console.error(err);

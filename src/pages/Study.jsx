@@ -85,7 +85,7 @@ export default function Study() {
         status: currentStatus,
         scheduled_at: isUpcoming ? scheduledAt : null,
         tags: selectedTags,
-        author: currentUser.displayName || 'Admin'
+        author: currentUser.user_metadata?.full_name || 'Admin'
       };
 
       const newWork = await apiService.publishWork(workPayload, currentUser.email);
@@ -272,7 +272,7 @@ export default function Study() {
                     <p><strong>Tipo:</strong> {workType}</p>
                     <p><strong>Capítulos:</strong> {chapterCount}</p>
                     <p><strong>Categorías:</strong> {selectedTags.join(', ')}</p>
-                    <p><strong>Autor (Tú):</strong> {currentUser.displayName || 'Admin'}</p>
+                    <p><strong>Autor (Tú):</strong> {currentUser.user_metadata?.full_name || 'Admin'}</p>
                  </div>
                  
                  <p className="text-xs text-center font-bold text-slate-400 mb-4 uppercase">¿Estás seguro de publicar?</p>

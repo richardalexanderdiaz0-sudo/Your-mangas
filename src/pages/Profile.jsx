@@ -14,8 +14,8 @@ export default function Profile() {
       {currentUser ? (
         <div className="px-6 mb-8 mt-4 flex items-center gap-4 bg-white mx-4 p-4 rounded-3xl shadow-sm border border-pink-50">
           <div className="w-16 h-16 rounded-full overflow-hidden bg-pink-200 shrink-0 border-2 border-white shadow-md">
-            {currentUser.photoURL ? (
-              <img src={currentUser.photoURL} alt="Avatar" className="w-full h-full object-cover" />
+            {currentUser.user_metadata?.avatar_url ? (
+              <img src={currentUser.user_metadata.avatar_url} alt="Avatar" className="w-full h-full object-cover" />
             ) : (
               <div className="w-full h-full bg-gradient-to-br from-indigo-900 to-purple-900 flex items-center justify-center">
                  <span className="text-2xl">🌙</span>
@@ -23,8 +23,8 @@ export default function Profile() {
             )}
           </div>
           <div>
-            <h2 className="text-lg font-bold text-slate-800">{currentUser.displayName || 'Usuario de Yourmanga'}</h2>
-            <p className="text-xs text-slate-400 mt-1 font-medium">ID: {currentUser.uid.slice(0,8)}</p>
+            <h2 className="text-lg font-bold text-slate-800">{currentUser.user_metadata?.full_name || 'Usuario de Yourmanga'}</h2>
+            <p className="text-xs text-slate-400 mt-1 font-medium">ID: {currentUser.id.slice(0,8)}</p>
           </div>
         </div>
       ) : (

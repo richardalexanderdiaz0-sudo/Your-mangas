@@ -16,9 +16,9 @@ export default function Library() {
         return;
       }
       try {
-        const data = await apiService.getLibrary(currentUser.uid); // or email depending on your backend
+        const data = await apiService.getLibrary(currentUser.id); // or email depending on your backend
         // Assume data contains joined manga_work info
-        let list = Array.isArray(data) ? data : data.items || [];
+        let list = Array.isArray(data) ? data : data?.items || [];
         // Map assuming Xano library table returns `{ id, user_id, manga_work_id, manga_work: { ... }}`
         list = list.map(item => item.manga_work ? item.manga_work : item);
         setLibraryWorks(list);

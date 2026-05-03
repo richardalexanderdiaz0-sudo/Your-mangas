@@ -24,7 +24,7 @@ export default function Genres() {
       setLoading(true);
       try {
         const data = await apiService.getWorks();
-        let allWorks = Array.isArray(data) ? data : data.items || [];
+        let allWorks = Array.isArray(data) ? data : data?.items || [];
         
         // Simular filtrado local (el backend debería hacerlo idealmente)
         if (search) {

@@ -25,7 +25,7 @@ export default function WorkDetails() {
           apiService.getChapters(id)
         ]);
         setWork(workData);
-        setChapters(Array.isArray(chaptersData) ? chaptersData : chaptersData.items || []);
+        setChapters(Array.isArray(chaptersData) ? chaptersData : chaptersData?.items || []);
       } catch (err) {
         console.error(err);
       } finally {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import BottomNav from './components/BottomNav';
 import Home from './pages/Home';
@@ -13,7 +13,7 @@ import Study from './pages/Study';
 export default function App() {
   return (
     <AuthProvider>
-      <BrowserRouter>
+      <HashRouter>
         <div className="min-h-screen bg-pink-50 pb-20 font-sans">
           <Routes>
             <Route path="/" element={<Home />} />
@@ -26,7 +26,7 @@ export default function App() {
           </Routes>
           <BottomNav />
         </div>
-      </BrowserRouter>
+      </HashRouter>
     </AuthProvider>
   );
 }
